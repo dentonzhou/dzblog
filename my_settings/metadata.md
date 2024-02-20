@@ -1,6 +1,6 @@
 ---
-title: "Eggspress"
-subtitle: "the lightweight blog anyone can deploy 🐣"
+title: "dev stuff"
+subtitle: ""
 subheading: ""
 
 indexHeadlineSeparator: ""
@@ -9,7 +9,7 @@ indexSubtitlePrefix: " is "
 indexTitle: ""
 metaTitle: "Eggspress - Your ideas. Your voice. Your blog."
 metaDescription: "Eggspress is a fast, free, and lightweight blogging platform that you control. Designed for easy deployment, Eggspress lets anyone with a little technical know-how launch their very own site. Publish as you please."
-metaBaseUrl: ""
+metaBaseUrl: "https://dentonzhou.com"
 
 ogDescription: "A brand new Eggspress site is coming soon!"
 ogImageFilename: "og_logo.png"
