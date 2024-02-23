@@ -249,6 +249,7 @@ const setColors = async path => {
                   fs.appendFileSync(
                     'app/github-dark.css',
                     `.dark pre:has(.hljs), .dark .hljs { background: ${value.replace('[', '').replace(']', '')} }`
+                    `.dark pre > code { background: ${value.replace('[', '').replace(']', '')} }`
                   )
                 }
               }
@@ -257,6 +258,7 @@ const setColors = async path => {
                   fs.appendFileSync(
                     'app/stackoverflow-light.css',
                     `pre:has(.hljs), .hljs { background: ${value.replace('[', '').replace(']', '')} }`
+                    `pre > code { background: ${value.replace('[', '').replace(']', '')} }`
                   )
                 }
               }
