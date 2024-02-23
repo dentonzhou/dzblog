@@ -2,7 +2,7 @@
 name: "Denton Zhou"
 description: "Self-taught developer and founder at OpenCourser, now working on Eggspress"
 image: "denton.jpg"
-role: "Dev, Writer, Photographer"
+role: "Author"
 location: "New York, NY"
 education: "Case Western Reserve University"
 degree: ""

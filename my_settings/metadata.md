@@ -1,6 +1,6 @@
 ---
 title: "dev stuff"
-subtitle: ""
+subtitle: "*"
 subheading: ""
 
 indexHeadlineSeparator: ""

@@ -24,11 +24,11 @@ linkText2: "Start your blog on Eggspress"
 link2: "https://eggspress.org/getting-started"
 
 
-heading3: "Follow me on Tiktok"
+heading3: "Tweet / DM"
 image3: ""
-text3: "I'm learning how to use TikTok to market Eggspress. Follow along!"
-linkText3: "@EggspressBlog"
-link3: "https://www.tiktok.com/@eggspressblog"
+text3: "Have feedback? Thoughts? Tell me about them!"
+linkText3: "@dentonzh"
+link3: "https://twitter.com/dentonzh"
 
 heading4: ""
 image4: ""

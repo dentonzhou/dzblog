@@ -8,7 +8,7 @@ subheading: ""
 author: "denton"
 snippet: "You don't need Node to use Tailwind on your Flask or Quart project. Here's how you can use Tailwind's standalone CLI to watch your files and create production-ready CSS files."
 description: ""
-sidebar: ""
+sidebar: "dev"
 category: ""
 
 prevPost: ""

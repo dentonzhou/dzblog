@@ -1,7 +1,7 @@
 ---
-fontFamily: "Roboto_Flex"
+fontFamily: "Raleway"
 
-colorScheme: "carbon"
+colorScheme: "sandstone"
 theme: "eggspress"
 
 sidebar: "index"
