@@ -1,7 +1,8 @@
 ---
-title: "dev stuff"
-subtitle: "*"
-subheading: ""
+title: ""
+subtitle: ""
+subheading: "Denton Zhou"
+subsubheading: "A blog about dev stuff and photography"
 
 indexHeadlineSeparator: ""
 indexSubtitlePrefix: " is "
