@@ -49,33 +49,22 @@ But in this post, my primary concern is whether I could use Tailwind without Nod
 > [flask-tailwind-no-node](https://github.com/dentonzh/flask-tailwind-no-node) and [quart-tailwind-no-node](https://github.com/dentonzh/quart-tailwind-no-node)
 
 ## Why Tailwind without Node?
-I'm opting out of Node for my Flask / Quart projects because:
+My opting out of Node is purely a matter of personal preference. It's so I can keep the directories for my Flask / Quart projects tidy.
 
-1. I want to keep my project directory free of clutter
-2. Node, even at idle, consumes resources
+Without Node, I can dispense with keeping a `node_modules` directory and fies like `package.json` and `package-lock.json`.
 
-Point number one is purely a matter of personal preference. I'd prefer to keep my Python projects free of `node_modules`, `package.json`, and `package-lock.json`. I see them all too much when working on my frontend projects, so I think this is perfectly reasonable.
-
-On the latter point, I sometimes `ssh` directly into my server to make quick fixes. I'll do this either from another machine that doesn't have the whole environment set up. Often it's from my phone (using the fantastic UserLand app).
-
-Usually, the fixes are urgent in nature, a 500 error on a route with moderate traffic or data not showing up correctly. But every now and then I need to make a tweak to my templates. And what if I need to adjust a Tailwind class?
-
-The last thing I'd want is to keep Node running just to rebuild my CSS every now and again.
-
-You might say, "well, Node doesn't really consume that many resources," and you'd be correct.
-
-But I run OpenCourser on a droplet with 1GiB of memory. I'm already eating up a lot of memory if you account for the operating system, the app itself, nginx, gunicorn, Elasticsearch, MySQL, etc. Even at idle, Node would consume a good chunk of whatever free memory remains.
+Adam Wathan, Tailwind's creator, gives a [more concrete reason](https://tailwindcss.com/blog/standalone-cli). Namely, he suggests that Tailwind is difficult to set up in the absence of npm. With projects like Rails and Phoenix moving away from npm, it's important that there be a way to use Tailwind without relying on its npm package.
 
 ## Three possible solutions
-The easiest solution I thought of was simply to pull Tailwind into the app using a CDN. As of 3.7.1, Tailwind weighs in at 370KB minified, so this is very much a sub-optimal solution. It certainly wouldn't be viable to do this in production.
+Before coming across the obvious solution (which we'll get to in a second), I came up with a couple of ideas that would let me circumvent Node.
 
-The second solution is to run Node in my development environment. I would forego having a tidy project directory or being able to edit templates by `ssh`ing into my server. But at least I'd still get to enjoy Tailwind.
+The easiest solution was to pull Tailwind into the app using a CDN. As of 3.7.1, Tailwind weighs in at 370KB minified, so this is very much a sub-optimal solution. 
 
-Or, the solution I ultimately settled on, I could use Tailwind's standalone CLI. This CLI conveniently does everything Tailwind does when it's run via Node. It only runs in the background during development. 
+OpenCourser transfers just over 800KB for its index page as of this writing, so tacking on Tailwind in all of its glory, even minified, would increase the amount of data transferred to new visitors.
 
-Unlike Tailwind on Node, however, it does take some setting up.
+The second solution is to use Node to build Tailwind's output css file either locally or as part of the CI workflow (e.g. with Github Actions). This is a suitable alternative. But could there be a completely Node-free way?
 
-But if you're already familiar with setting up Flask and Quart projects, this process should be fairly straightforward.
+It turns out, yes. I could use Tailwind's standalone CLI, which does everything Tailwind does when it's run via Node. When properly configured, it can run in the background only during development.
 
 ## Set up the standalone CLI
 
