@@ -6,7 +6,7 @@ subtitle: ""
 subheading: ""
 
 author: "denton"
-snippet: "You don't need Node to use Tailwind on your Flask or Quart project. Here's how you can use Tailwind's standalone CLI to watch your files and create production-ready CSS files."
+snippet: "Here's how you can use Tailwind's standalone CLI to watch your files and create production-ready CSS files. No node required."
 description: ""
 sidebar: "dev"
 category: ""
@@ -288,7 +288,7 @@ def hello():
 app.run(debug=True)
 ```
 
-## Calling tailwindcss from Quart
+### Calling tailwindcss from Quart
 We'll also call `subprocess.Popen()` to spawn our process in Quart. The key difference from Flask is that we'll need to use the `@app.before_serving` decorator, which helps us run setup tasks before Quart begins serving requests.
 
 ```python
@@ -317,6 +317,81 @@ async def hello():
     return await render_template('blog/index.html', title='Hello', text='Hi!')
 
 app.run(debug=True)
+```
+
+## Using Flask Blueprint
+When using Blueprint to structure your app, you might need to make a few adjustments. Here's an example that uses a simplified version of OpenCourser's project directory:
+
+```
+
+project
+├── opencourser
+│  ├── __init__.py
+│  ├── app.py
+│  ├── blog
+│  │  ├── __init__.py
+│  │  ├── blog.py
+│  │  └── templates
+│  │     └── posts
+│  │        └── view.html
+│  ├── courses
+│  │  ├── __init__.py
+│  │  ├── courses.py
+│  │  └── templates
+│  │     └── courses
+│  │        └── view.html
+│  ├── static
+│  │  ├── css
+│  │  │  ├── input.css
+│  │  │  └── output.css
+│  ├── tailwind.config.js
+│  ├── tailwindcss
+│  └── templates
+│     ├── base.html
+│     └── index.html
+
+```
+
+In this example, `app.py` is stored in the subdirectory `opencourser/`. 
+
+Recall that we execute `tailwindcss` from `app.py` using `subprocess`. This affects how `tailwindcss` reads the paths in `tailwind.config.js`. Left as is, `tailwindcss` will likely complain:
+
+```console
+warn - No utility classes were detected in your source files. If this is unexpected, double-check the `content` option in your Tailwind CSS configuration.
+```
+
+The easiest way to resolve this is by moving `tailwindcss` and `tailwind.config.js` so that they are in the same directory as `app.py`.
+
+Once we've placed `tailwindcss` and `tailwind.config.js` alongside `app.py`, we'll need to update the paths we pass to `subprocess.Popen`:
+
+```python
+subprocess.Popen(
+	[
+		'./tailwindcss',
+		'-i',
+		'static/css/input.css',
+		'-o',
+		'static/css/output.css',
+		'--watch',
+	]
+)
+```
+
+Lastly, we need to update `tailwind.config.js` to include the paths of all of our templates. 
+
+```js
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    './templates/**/*.html',
+    './blog/templates/**/*.html',
+    './courses/templates/**/*.html',
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
 ```
 
 ## Recap
