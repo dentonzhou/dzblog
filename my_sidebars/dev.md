@@ -14,7 +14,7 @@ pinnedPost9: ""
 heading1: "Learn anything"
 image1: ""
 text1: "I built OpenCourser to help others like me find online courses to take"
-linkText1: "Search over 20,000 courses"
+linkText1: "Search over 35,000 courses"
 link1: "https://opencourser.com"
 
 heading2: "Use Eggspress"
