@@ -1,5 +1,5 @@
 ---
-fontFamily: "Raleway"
+fontFamily: "Readex_Pro"
 
 colorScheme: "sandstone"
 theme: "eggspress"
