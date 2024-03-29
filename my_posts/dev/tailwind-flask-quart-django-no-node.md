@@ -6,7 +6,7 @@ subtitle: ""
 subheading: ""
 
 author: "denton"
-snippet: "Here's how you can use Tailwind's standalone CLI to watch your files and create production-ready CSS files. No node required."
+snippet: "You don't need Node to use Tailwind in your Flask or Quart projects. Here's how you can use Tailwind's standalone CLI to watch your files and create production-ready CSS files."
 description: ""
 sidebar: "dev"
 category: ""
@@ -288,7 +288,7 @@ def hello():
 app.run(debug=True)
 ```
 
-### Calling tailwindcss from Quart
+## Calling tailwindcss from Quart
 We'll also call `subprocess.Popen()` to spawn our process in Quart. The key difference from Flask is that we'll need to use the `@app.before_serving` decorator, which helps us run setup tasks before Quart begins serving requests.
 
 ```python
@@ -394,6 +394,39 @@ module.exports = {
 }
 ```
 
+## Multiple Tailwind CLI processes
+
+*Updated March 29, 2024*
+
+The code snippets above will start Tailwind automatically, but there's a caveat. In debug mode, changes you make to your app code will cause your app to reload. Each time your app reloads, you'll start a new Tailwind process!
+
+There's a workaround for this:
+
+```python
+
+if app.debug:
+	try:
+		subprocess.check_output(['pgrep', '-f', './tailwindcss'])
+	except subprocess.CalledProcessError:
+		print('Starting Tailwind CLI...')
+		tailwind_process = subprocess.Popen([
+				'./tailwindcss',
+				'-i',
+				'app/static/css/input.css',
+				'-o',
+				'app/static/css/output.css',
+				'--watch',
+			])
+		print(tailwind_process)
+
+```
+
+In the snippet above, we add try/except blocks, calling `pgrep` to retrieve a list of processes that match `./tailwindcss`. If any exist, we do nothing. Otherwise, we call `subprocess.Popen` to run `tailwindcss` in the background.
+
+In Flask, closing your app will terminate the instance of `tailwindcss` started by it. In Quart, however, we need to add a bit more code to have this work well in an async environment. 
+
+If you're using Quart, see the [repo on github](https://github.com/dentonzh/quart-tailwind-no-node) to get an idea of what changes to make. High level, we create a `run.py` from which you'll run your Quart app in debug mode and change your `start_tailwind_cli` function into an async one.
+
 ## Recap
 In this post, we downloaded Tailwind's standalone CLI to our project directory. In Mac and Linux, we used `curl` to do this and used `chmod` to make `tailwindcss` executable. On Windows, we saved this file via the browser.
 
@@ -403,8 +436,8 @@ We modified this file to tell `tailwindcss` where our templates are. We manually
 
 To ensure that the `tailwindcss` executable doesn't get merged into our repository, we added it to `.gitignore` (if using Git).
 
-Finally, we ran `tailwindcss` from the terminal with the `--watch` flag, passing to it parameters that tell it where our `input.css` and `output.css` files are.
+Finally, we ran `tailwindcss` from the terminal with the `--watch` flag, passing to it parameters that tell it where our `input.css` and `output.css` files are. We add in a bit more code to check if `tailwindcss` is already running to prevent us from spawning multiple processes.
 
-And that's it!
+If we're using Blueprints, we'll have to be mindful of how the files and directories in our project are set up. Once we've made the correct adjustments, everything should work just fine.
 
 We're now able to use Tailwind classes in our Python web project without needing to install and run Node.
