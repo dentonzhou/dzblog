@@ -82,7 +82,9 @@ To recap: rate limiting stops bots from making too many requests to OpenCourser.
 
 This brings us to the meat of this post: how do we actually identify a good bot?
 
-## By User-Agent
+## Verifying a good bot
+
+### By User-Agent
 
 Every time a person or a bot visits OpenCourser, they're creating an HTTP request. This request could be thought of as a letter in the mail system. When you create the request with your browser, you're telling it where to connect (`https://opencourser.com`).
 
@@ -143,7 +145,7 @@ This alone is a great start. Request headers can, however, be modified. This mea
 
 Still, this check is inexpensive to run and it's worth feeding every request through to see whether we need to perform additional verification steps.
 
-## Verify by IP address
+### By IP address
 
 The easiest way to validate a good bot is to create a whitelist of known IP addresses. I’ve been using this [GitHub repository](https://github.com/AnTheMaker/GoodBots) from [Anton Röhm](https://github.com/AnTheMaker) that contains whitelists of known IPs belonging to good bots. It's updated daily.
 
@@ -187,7 +189,7 @@ if ‘DuckDuckBot’ in user_agent:
 
 This snippet returns `True` if an incoming request has a `User-Agent` that contains the string `DuckDuckBot` and _also_ has an IP address found in the IP whitelist for DuckDuckBot.
 
-## Verify by reverse DNS lookup
+### By reverse DNS lookup
 
 A reverse DNS lookup uses the Domain Name System (DNS) to find the domain name associated with an IP address. 
 
@@ -229,7 +231,7 @@ When we run `socket.gethostbyaddr('66.249.90.77')[0]`, we see this output:
 
 According to Google's documentation, any IP with reverse DNS mask ending in `.google.com`  or `.googlebot.com` is a valid. We can therefore conclude that the IP above belongs to a good bot and allow it to crawl OpenCourser without being subjected to our rate limiter.
 
-## Reverse DNS lookups are preferable to IP lookups
+## Reverse DNS lookups are preferable
 
 Reverse DNS lookups are superior to IP lookups in almost every way. The reasons for this boil down to ease of maintenance and accuracy.
 
