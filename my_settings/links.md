@@ -1,6 +1,6 @@
 ---
 linkTwitter: "https://twitter.com/dentonzh"
-linkFacebook: null
+linkFacebook: "https://facebook.com/OpenCourser"
 linkInstagram: "https://www.instagram.com/dentonzh/"
 linkLinkedin: "https://www.linkedin.com/in/dentonzh"
 linkGithub: "https://github.com/dentonzh"
