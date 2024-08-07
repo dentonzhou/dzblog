@@ -1,19 +1,16 @@
 ---
 title: ""
 subtitle: ""
-subheading: "Denton Zhou"
-subsubheading: "A blog about dev stuff and photography"
-
+subheading: Denton Zhou
+subsubheading: A blog for my developer notes and photos
 indexHeadlineSeparator: ""
 indexSubtitlePrefix: " is "
-
 indexTitle: ""
-metaTitle: "Eggspress - Your ideas. Your voice. Your blog."
-metaDescription: "Eggspress is a fast, free, and lightweight blogging platform that you control. Designed for easy deployment, Eggspress lets anyone with a little technical know-how launch their very own site. Publish as you please."
-metaBaseUrl: "https://dentonzhou.com"
-
-ogDescription: "A brand new Eggspress site is coming soon!"
-ogImageFilename: "og_logo.png"
+metaTitle: Eggspress - Your ideas. Your voice. Your blog.
+metaDescription: Eggspress is a fast, free, and lightweight blogging platform that you control. Designed for easy deployment, Eggspress lets anyone with a little technical know-how launch their very own site. Publish as you please.
+metaBaseUrl: https://dentonzhou.com
+ogDescription: A brand new Eggspress site is coming soon!
+ogImageFilename: og_logo.png
 ogImageWidth: 192
 ogImageHeight: 192
 ---
