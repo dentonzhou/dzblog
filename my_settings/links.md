@@ -1,12 +1,12 @@
 ---
-linkTwitter: "https://twitter.com/EggspressBlog"
-linkFacebook: "https://facebook.com/EggspressBlog"
-linkInstagram: "https://www.instagram.com/eggspressblog/"
-linkLinkedin: "https://www.linkedin.com/company/eggspress"
-linkGithub: "https://github.com/dentonzh/Eggspress"
+linkTwitter: "https://twitter.com/dentonzh"
+linkFacebook: null
+linkInstagram: "https://www.instagram.com/dentonzh/"
+linkLinkedin: "https://www.linkedin.com/in/dentonzh"
+linkGithub: "https://github.com/dentonzh"
 
 linkToWebsite1: "https://opencourser.com"
-nameForWebsite1: "OpenCourser: Learn Anything"
+nameForWebsite1: "OpenCourser: Learn Skills That Shape Your Future"
 linkToWebsite2: ""
 nameForWebsite2: ""
 linkToWebsite3: ""
@@ -27,7 +27,7 @@ nameForWebsite9: ""
 modifyLinkBaseUrl1: "opencourser.com"
 modifyLinkStrictMatch1: true
 modifyLinkSetPrefix1: ""
-modifyLinkSetSuffix1: "?utm_source=eggspress&utm_medium=blog&utm_campaign=new_blog"
+modifyLinkSetSuffix1: "?utm_source=dzblog&utm_medium=blog&utm_campaign=dev_notes"
 modifyLinkSetNewBaseUrl1: ""
 
 modifyLinkBaseUrl2: ""
