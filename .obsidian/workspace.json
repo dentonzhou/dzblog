@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "my_settings/metadata.md",
+                "file": "my_posts/dev/letting-good-bots-in.md",
                 "mode": "source",
                 "source": false
               }
@@ -65,7 +65,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -85,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "my_settings/metadata.md",
+                "file": "my_posts/dev/letting-good-bots-in.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "my_settings/metadata.md",
+                "file": "my_posts/dev/letting-good-bots-in.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "my_settings/metadata.md"
+                "file": "my_posts/dev/letting-good-bots-in.md"
               }
             }
           }
@@ -147,5 +148,10 @@
     }
   },
   "active": "0d7bce87c637f4de",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "my_sidebars/index.md",
+    "my_posts/dev/letting-good-bots-in.md",
+    "my_posts/dev/tailwind-flask-quart-django-no-node.md",
+    "my_settings/metadata.md"
+  ]
 }
