@@ -1,10 +1,10 @@
 ---
 name: "Denton Zhou"
-description: "Software eng, photographer, and OpenCourser founder"
+description: "OpenCourser and Eggspress founder. Likes 📷, 📚, 🐍 (Python), 🌞, and 🛪."
 image: "denton.jpg"
 role: "Author"
-location: "New York, NY"
-education: "Case Western Reserve University"
+location: "NYC"
+education: "CWRU '11"
 degree: ""
 work: ""
 company: ""
