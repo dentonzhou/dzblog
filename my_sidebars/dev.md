@@ -21,7 +21,7 @@ heading2: "Publish on Eggspress"
 image2: ""
 text2: "This blog is built on Eggspress, an open-source site platform that's fast and free"
 linkText2: "Start blogging"
-link2: "https://eggspress.org/getting-started"
+link2: "https://eggspress.vercel.app/getting-started"
 
 
 heading3: "Tweet at me"
